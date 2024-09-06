@@ -3,7 +3,7 @@
   "version": "1.3.6",
   "description": "Formats whitespace in a SQL query to make it more readable",
   "license": "MIT",
-  "main": "lib/sqlFormatter.js",
+  "main": "src/extension.js",  
   "keywords": [
     "sql",
     "formatter",
@@ -13,7 +13,8 @@
   ],
   "authors": [
     "Rene Saarsoo",
-    "Uku Pattak"
+    "Uku Pattak",
+    "Muhammad Badar"
   ],
   "files": [
     "dist",
@@ -67,5 +68,22 @@
     ],
     "testRegex": ".*Test",
     "collectCoverage": true
-  }
+  },
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "publisher": "mbadar",
+  "categories": ["Other"],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.formatSQL",
+        "title": "Format SQL"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onLanguage:sql",
+    "onCommand:extension.formatSQL"
+  ]
 }

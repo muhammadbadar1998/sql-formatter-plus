@@ -319,7 +319,12 @@ const reservedNewlineWords = [
   'RIGHT JOIN',
   'RIGHT OUTER JOIN',
   'WHEN',
-  'XOR'
+  'XOR',
+  'INTERSECT',
+  'INTERSECT ALL',
+  'MINUS',
+  'UNION',
+  'UNION ALL'
 ];
 
 let tokenizer;
@@ -353,6 +358,20 @@ export default class StandardSqlFormatter {
         lineCommentTypes: ['#', '--']
       });
     }
-    return new Formatter(this.cfg, tokenizer).format(query);
+    
+    // Format the query using the existing Formatter
+    const formattedQuery = new Formatter(this.cfg, tokenizer).format(query);
+
+    // Add newlines before any JOIN keywords
+    const joinKeywords = ['JOIN', 'INNER JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'OUTER JOIN', 'ON'];
+
+    // Replace occurrences of JOIN with two newlines before
+    const finalFormattedQuery = formattedQuery.replace(
+      new RegExp(`(${joinKeywords.join('|')})`, 'gi'), // Case insensitive match for JOIN keywords
+      '\n$1' // Add one newline before JOIN keywords
+    );
+
+    return finalFormattedQuery;
   }
 }
+

@@ -67,6 +67,13 @@ export default class Formatter {
       } else if (token.type === tokenTypes.RESERVED) {
         formattedQuery = this.formatWithSpaces(token, formattedQuery);
         this.previousReservedWord = token;
+      } else if (token.type === tokenTypes.RESERVED_NEWLINE) {
+        // Add an extra empty line before JOIN keywords
+        if (['JOIN', 'INNER JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'OUTER JOIN'].includes(token.value.toUpperCase())) {
+          formattedQuery += '\n';  // Add an extra newline before JOIN keywords
+        }
+        formattedQuery = this.formatNewlineReservedWord(token, formattedQuery);
+        this.previousReservedWord = token;
       } else if (token.type === tokenTypes.OPEN_PAREN) {
         formattedQuery = this.formatOpeningParentheses(token, formattedQuery);
       } else if (token.type === tokenTypes.CLOSE_PAREN) {
