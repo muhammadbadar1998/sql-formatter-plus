@@ -1,4 +1,8 @@
-import StandardSqlFormatter from './languages/StandardSqlFormatter';
+// Old ES Module syntax:
+ import StandardSqlFormatter from './languages/StandardSqlFormatter';
+
+// New CommonJS syntax:
+//const StandardSqlFormatter = require('./languages/StandardSqlFormatter');
 
 /**
  * Format whitespace in a query to make it easier to read.

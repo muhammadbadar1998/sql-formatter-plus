@@ -3,7 +3,7 @@
   "version": "1.3.6",
   "description": "Formats whitespace in a SQL query to make it more readable",
   "license": "MIT",
-  "main": "src/extension.js",  
+  "main": "lib/extension.js",  
   "keywords": ["sql", "formatter", "format", "n1ql", "whitespace"],
   "authors": ["Rene Saarsoo", "Uku Pattak", "Muhammad Badar"],
   "files": ["dist", "lib", "src"],

@@ -1,5 +1,8 @@
-import Formatter from '../core/Formatter';
-import Tokenizer from '../core/Tokenizer';
+// Old ES Module syntax:
+ import Formatter from '../core/Formatter';
+ import Tokenizer from '../core/Tokenizer';
+
+
 
 const reservedWords = [
   'ACCESSIBLE',
