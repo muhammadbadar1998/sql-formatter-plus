@@ -1,4 +1,11 @@
 {
-  "presets": ["@babel/env"],
-  "plugins": ["add-module-exports"]
-}
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": "commonjs"  // This ensures ES6 modules are converted to CommonJS
+        }
+      ]
+    ]
+  }
+  
