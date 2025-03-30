@@ -1,1 +1,29 @@
-node_modules
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+lib/
+
+# IDE-specific files
+.vs/
+*.code-workspace
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+
+# Coverage reports
+coverage/
+
+# Environment files
+.env
